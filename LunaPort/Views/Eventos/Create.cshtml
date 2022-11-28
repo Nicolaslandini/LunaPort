@@ -1,0 +1,66 @@
+﻿@model LunaPort.Models.Evento
+
+@{
+    ViewData["Title"] = "Crea tu Evento!";
+}
+<head>
+    <style>
+        .botonVolver {
+            text-decoration: none;
+            color: white;
+        }
+
+            .botonVolver:hover {
+                text-decoration: none;
+                color: white;
+            }
+        .row{
+            color:whitesmoke;
+            position:center;
+        }
+        
+    </style>
+</head>
+
+<h1 style="color: whitesmoke">Crea tu Evento!</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadio" class="control-label"></label>
+                <select asp-for="IdEstadio" class="form-control">
+                    <span asp-validation-for="IdEstadio" class="text-danger"></span>
+                    <option value=1>Estadio Azul</option>
+                    <option value=2>Estadio Fuego</option>
+                    <option value=3>Estadio Pasion Morena</option>
+                 
+                </select>
+            </div>
+            </br>
+            <div class="form-group">
+                <button type="submit" value="Create" class="btn btn-success">Crear</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+     </br>
+
+<button type="button" class="btn btn-secondary"><a asp-action="Index" class="botonVolver">Volver al listado de eventos</a></button>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

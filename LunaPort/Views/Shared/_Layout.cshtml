@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Proyecto Luna Port</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shojumaru&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin-bottom: 0px !important;
+            background-image: url(/img/HomBack.jpg);
+            background-size:cover;
+            background-repeat: no-repeat;
+            
+
+        }
+
+        .footer {
+            background-color: #241f21;
+            position: relative !important;
+            font-family: sans-serif;
+            overflow: hidden;
+            height: 10vh;
+        }
+
+            .footer .container, .footer .container a {
+                color: #f8f9fa;
+                font-size: .6rem;
+            }
+
+        nav {
+            position: relative;
+        }
+
+        .barraNavegacion {
+            background-color: transparent !important;
+        }
+
+        a.nav-link {
+            color: #f8f9faa4 !important;
+        }
+
+            a.nav-link.drop {
+                color: white !important;
+            }
+
+            a.nav-link:hover {
+                color: #BE6E5C !important;
+                transition: 0.5s;
+            }
+
+            a.nav-link.drop:hover {
+                color: #BE6E5C !important;
+            }
+
+        .a-imgLogo .imgLogo {
+            width: 19vh;
+            position: relative;
+        }
+
+        .container.contenedorNavegacion {
+            margin-right: 0px;
+            margin-left: 0;
+        }
+
+        .dropdown-menu {
+            background-color: black;
+            opacity: 40%;
+        }
+
+
+        .contenedorTitulo h1 {
+                font-size: 90px;
+                color: white;
+                z-index: 500;
+                font-family: 'Shojumaru', cursive;
+        }
+
+        .contenedorImagenTitulo {
+            position: absolute;
+            opacity: 80%;
+            top: 8em;
+        }
+
+    
+
+         #footer
+        {
+            background-color: black;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            color: white;
+        }
+
+      
+    </style>
+    <link rel="stylesheet" href="~/css/site.css"/>
+
+</head>
+<body>
+    <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm  box-shadow mb-3 barraNavegacion">
+                <div class="container contenedorNavegacion">
+                    <a class="navbar-brand a-imgLogo" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="/images/White Minimalist Podcast Logo (2).png" class="imgLogo" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                                <img src="~/img/logopng.png" alt="Bootstrap" width="30" height="24">
+                                </a>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">LunaPort</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Login">Crea tu Evento!</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Eventos" asp-action="">Proximos Eventos</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <form class="d-grid gap-2 d-md-flex justify-content-md-end" role="none">
+                    <button class="btn btn-outline-light nav-item" type="button">  <a asp-area="" asp-controller="Home" asp-action="Login" class="nav-link">Tu Cuenta</a></button>
+                </form>
+            </nav>
+          
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

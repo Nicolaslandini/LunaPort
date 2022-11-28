@@ -1,0 +1,61 @@
+﻿@model LunaPort.Models.Evento
+
+@{ ViewData["Title"] = "Compra Realizada"; }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Luna Port</title>
+    <link rel="stylesheet" href="~/css/reservaConfirmada.css" />
+    <style>
+
+        .cajaTitulos{
+            text-align:center;
+           
+        }
+        .titulo {
+            color: white;
+            font-family:'Century Schoolbook';
+            
+            
+        }
+       
+    </style>
+
+</head>
+<body>
+    <div class="cajaTitulos">
+    <h1 class="titulo">COMPRA REALIZADA CON EXITO</h1>
+        
+    <h2 class="titulo">DISFRUTALO!</h2>
+
+    </div>
+    <div class="ticket ticket-1">
+
+        <div class="date">
+            <span class="day">@ViewBag.dia</span>
+            <span class="month-and-time">@ViewBag.mes</br><span class="small">@ViewBag.hora</span></span>
+        </div>
+
+        <div class="artist">
+            <span class="name">@ViewBag.nombreEvento</span>
+            </br>
+            <span class="live small">@ViewBag.cantidadEntradas Entrada/s</span>
+            </br>
+            <span class="live small">Estadio - @ViewBag.nombreEstadio</span>
+        </div>
+
+
+        <div class="rip">
+        </div>
+
+        <div class="cta">
+            <button class="buy" href=""><a class="nav-link drop" asp-area="" asp-controller="Eventos" asp-action="">Comprar más entradas</a></button>
+        </div>
+
+    </div>
+</body>
+</html>

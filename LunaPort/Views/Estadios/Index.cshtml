@@ -1,0 +1,87 @@
+﻿@model IEnumerable<LunaPort.Models.Evento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+
+    <style>
+        body {
+            background-color: #460d0a;
+            color: white;
+        }
+
+        .titulo {
+            visibility: hidden;
+            margin-left: -300px;
+        }
+
+            .titulo::after {
+                content: "Obras disponibles";
+                visibility: visible;
+                font-size: .5em;
+                margin-bottom: 20px;
+            }
+
+        .table thead th {
+            color: white;
+        }
+
+        .table td, .table th {
+            color: white;
+            vertical-align: inherit;
+        }
+
+        .login_btn {
+            width: 100%;
+            background: #241f21 !important;
+            color: white !important;
+        }
+
+            .login_btn:focus {
+                box-shadow: none !important;
+                outline: 0px !important;
+            }
+
+        .login_container {
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+
+<h1>Eventos disponibles</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+
+                <td>
+                    <div class="d-flex justify-content-center login_container">
+                        <button type="button" name="button" class="btn login_btn"><a class="nav-link drop" asp-action="Details" asp-route-id="@item.IdEvento">Comprar entradas</a></button>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

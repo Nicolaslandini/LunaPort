@@ -1,0 +1,105 @@
+﻿
+@model LunaPort.Models.Evento
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<head>
+    <style>
+        .titulo {
+            visibility: hidden;
+            margin-left: -300px;
+        }
+
+            .titulo::after {
+                content: "Reserva";
+                visibility: visible;
+                font-size: .5em;
+                margin-bottom: 10px;
+            }
+
+        .contenedorDetalles {
+            color: white;
+        }
+
+        .inputReservar {
+            background-color: white;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #241f21;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.4;
+            padding: 10px;
+            width: 180px
+        }
+
+            .inputReservar:hover {
+                background-color: #241f21;
+                transition: 0.5s;
+                color: #fff;
+            }
+
+        .botonVolver {
+            text-decoration: none;
+            color: white;
+        }
+
+            .botonVolver:hover {
+                text-decoration: none;
+                color: white;
+            }
+       
+    </style>
+</head>
+
+<div class="row contenedorDetalles">
+    <div class="col-12 container-fluid d-flex">
+        <form asp-action="EfectuarReserva" asp-route-id="@Model.IdEvento" class="col-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="cantidadEntradas" class="control-label p-2">Selecciona la cantidad de entradas <br />para el evento de <b>@Html.DisplayFor(modelItem => Model.Nombre)</b></label>
+                
+                                     
+
+                <select class="form-select" name="cantidadEntradas">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                    <option value=9>9</option>      
+                    <option value=10>10</option>
+                </select>
+            </div>
+            </br>
+            <div class="form-group">
+                <input type="submit" value="Reservar" class="inputReservar" />
+            </div>
+
+            
+            
+                <div>
+                    <p>Capacidad disponible: @ViewBag.capacidadDisponible</p>
+                </div>
+            
+        </form>
+    </div>
+</div>
+
+     </br>
+
+<button type="button" class="btn btn-secondary"><a asp-action="Index" class="botonVolver">Volver al listado de eventos</a></button>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
